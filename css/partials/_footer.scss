@@ -64,13 +64,15 @@
                 }
             }
 
-            &:hover {
-
-                i {
-                    color: $clr-secondary;
-
-                    &::before {
-                        transform: scale(1.3);
+            @supports (hover: hover) {
+                &:hover {
+    
+                    i {
+                        color: $clr-secondary;
+    
+                        &::before {
+                            transform: scale(1.3);
+                        }
                     }
                 }
             }

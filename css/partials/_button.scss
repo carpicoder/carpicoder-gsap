@@ -19,11 +19,19 @@
         color: $clr-light;
     }
 
-    &.active,
-    &:hover {
+    &.active {
         background-color: $clr-secondary;
         border-color: $clr-secondary;
         color: $clr-dark;
         padding-inline: 3rem;
+    }
+
+    @supports (hover: hover) {
+        &:hover {
+            background-color: $clr-secondary;
+            border-color: $clr-secondary;
+            color: $clr-dark;
+            padding-inline: 3rem;
+        }
     }
 }
