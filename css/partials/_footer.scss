@@ -64,7 +64,7 @@
                 }
             }
 
-            @supports (hover: hover) {
+            @media (hover: hover) {
                 &:hover {
     
                     i {

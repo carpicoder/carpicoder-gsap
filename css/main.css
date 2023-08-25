@@ -141,7 +141,7 @@ body {
   color: #1c1c1c;
   padding-inline: 3rem;
 }
-@supports (hover: hover) {
+@media (hover: hover) {
   .hero-header-nav .menu li a:hover {
     background-color: #b2f344;
     border-color: #b2f344;
@@ -173,7 +173,7 @@ body {
     display: inline-flex;
   }
 }
-@supports (hover: hover) {
+@media (hover: hover) {
   .hero-header-nav .open-menu:hover {
     background-color: #b2f344;
     border-color: #b2f344;
@@ -446,7 +446,7 @@ body {
   color: #efefef;
   fill: #efefef;
 }
-@supports (hover: hover) {
+@media (hover: hover) {
   .hero-container-title:hover .icon, .hero-container-title .title-letter:hover .icon, .hero-container-title:hover .icon-code, .hero-container-title .title-letter:hover .icon-code, .hero-container-title:hover .icon-flecha, .hero-container-title .title-letter:hover .icon-flecha, .hero-container-title:hover .icon-emoji, .hero-container-title .title-letter:hover .icon-emoji {
     transform: scale(1) !important;
     width: 0.7em !important;
@@ -495,7 +495,7 @@ body {
   color: #1c1c1c;
   padding-inline: 3rem;
 }
-@supports (hover: hover) {
+@media (hover: hover) {
   .button:hover {
     background-color: #b2f344;
     border-color: #b2f344;
@@ -714,7 +714,7 @@ body {
 .footer-redes a i::before {
   transition: 0.2s;
 }
-@supports (hover: hover) {
+@media (hover: hover) {
   .footer-redes a:hover i {
     color: #b2f344;
   }

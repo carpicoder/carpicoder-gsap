@@ -105,7 +105,7 @@ body {
                             padding-inline: 3rem;
                         }
 
-                        @supports (hover: hover) {
+                        @media (hover: hover) {
                             &:hover {
                                 background-color: $clr-secondary;
                                 border-color: $clr-secondary;
@@ -140,7 +140,7 @@ body {
                     display: inline-flex;
                 }
 
-                @supports (hover: hover) {
+                @media (hover: hover) {
                     &:hover {
                         background-color: $clr-secondary;
                         border-color: $clr-secondary;
@@ -447,7 +447,7 @@ body {
                 }
             }
                 
-            @supports (hover: hover) {
+            @media (hover: hover) {
                 &:hover {
                     .icon {
                         transform: scale(1) !important;
