@@ -1,0 +1,10 @@
+#discord {
+    background-color: $clr-primary;
+
+    h2,
+    p,
+    p *,
+    h2 * {
+        color: $clr-light;
+    }
+}

@@ -1,0 +1,27 @@
+.about-me {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: start;
+    gap: 3rem;
+
+    @include query(700) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-picture {
+        background-color: $clr-primary;
+        border-radius: 1rem;
+        transition: .2s;
+
+        @include query(700) {
+            display: none;
+        }
+
+        img {
+            border-radius: 1rem;
+            transform: scale(1.2);
+            transition: .2s;
+        }
+    }
+}

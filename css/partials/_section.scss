@@ -1,0 +1,54 @@
+.section {
+    padding-block: 5rem;
+    margin: 1rem;
+    border-radius: 1rem;
+
+    @include query(1000) {
+        padding-block: 4rem;
+    }
+
+    @include query(850) {
+        padding-block: 3rem;
+    }
+
+    @include query(700) {
+        padding-block: 1.5rem;
+    }
+
+    &-title {
+        font-size: 6rem;
+        font-family: $ff-titles;
+        font-weight: 900;
+        line-height: .5;
+
+        @include query(750) {
+            font-size: 5rem;
+        }
+
+        @include query(650) {
+            font-size: 4rem;
+        }
+
+        @include query(550) {
+            font-size: 3rem;
+        }
+
+        .title-letter {
+            @extend .section-title;
+            font-size: 1em;
+        }
+    }
+
+    &-text {
+        font-size: 1.2rem;
+        margin-bottom: .75rem;
+
+        @include query(600) {
+            font-size: 1rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

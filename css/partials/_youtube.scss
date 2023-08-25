@@ -1,0 +1,15 @@
+#youtube {
+    background-color: $clr-dark;
+
+    h2,
+    p,
+    p *,
+    h2 * {
+        color: $clr-light;
+    }
+
+    *::selection {
+        background-color: $clr-light;
+        color: $clr-dark;
+    }
+}

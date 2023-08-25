@@ -1,0 +1,68 @@
+.footer {
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    background-color: $clr-dark;
+
+    @include query(1400) {
+        padding-block: 4rem;
+    }
+
+    @include query(1200) {
+        padding-block: 2.5rem;
+    }
+
+    h2,
+    p,
+    p *,
+    h2 *,
+    a,
+    a * {
+        color: $clr-light;
+    }
+
+    &-title {
+        font-size: 3rem;
+        font-family: $ff-titles;
+        font-weight: 700;
+
+        .title-letter {
+            @extend .footer-title;
+        }
+    }
+
+    &-redes {
+        margin-top: 2rem;
+        font-size: 3rem;
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        a {
+
+            i {
+                transition: .3s;
+
+                &::before {
+                    transition: .2s;
+                }
+            }
+
+            &:hover {
+
+                i {
+                    color: $clr-secondary;
+
+                    &::before {
+                        transform: scale(1.3);
+                    }
+                }
+            }
+        }
+    }
+
+    *::selection {
+        background-color: $clr-light;
+        color: $clr-dark;
+    }
+}

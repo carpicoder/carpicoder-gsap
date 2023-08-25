@@ -1,0 +1,22 @@
+.ball-cursor {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $clr-secondary-transparent;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9;
+}
+
+@media (any-pointer: coarse) {
+    .ball-cursor {
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+    }
+}
