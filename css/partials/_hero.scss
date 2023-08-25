@@ -9,7 +9,7 @@ body {
         color: $clr-dark;
     }
     
-    min-height: calc(100vh - 1rem);
+    min-height: calc(100svh - 1rem);
     background-color: $clr-light;
     isolation: isolate;
     margin: .5rem;

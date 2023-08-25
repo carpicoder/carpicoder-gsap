@@ -44,7 +44,7 @@ body {
 }
 
 .hero {
-  min-height: calc(100vh - 1rem);
+  min-height: calc(100svh - 1rem);
   background-color: #efefef;
   isolation: isolate;
   margin: 0.5rem;
