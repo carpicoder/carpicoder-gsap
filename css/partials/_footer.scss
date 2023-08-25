@@ -11,6 +11,13 @@
         padding-block: 2.5rem;
     }
 
+    @include query(600) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     h2,
     p,
     p *,
@@ -37,6 +44,15 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        @include query(600) {
+            justify-content: center;
+        }
+
+        @include query(400) {
+            font-size: 2rem;
+        }
+
 
         a {
 

@@ -11,7 +11,6 @@ body {
     
     min-height: calc(100svh - 1rem);
     background-color: $clr-light;
-    isolation: isolate;
     margin: .5rem;
     position: relative;
     border-radius: .5rem;
@@ -19,6 +18,11 @@ body {
     display: flex;
     flex-direction: column;
     background-color: $clr-primary;
+    isolation: isolate;
+
+    &.header-fixed {
+        isolation: auto;
+    }
 
     &-video {
         position: absolute;
@@ -53,6 +57,7 @@ body {
         align-items: center;
         justify-content: space-between;
         position: relative;
+        transition: .2s;
 
         &-logo {
             padding: 2rem;
@@ -61,6 +66,10 @@ body {
             img {
                 max-width: 6rem;
             }
+        }
+
+        .logo-img-dark {
+            display: none;
         }
 
         &-nav {
@@ -142,6 +151,10 @@ body {
                 border-top-right-radius: 1.4rem;
                 box-shadow: 1.4rem 0 0 $clr-light;
                 z-index: -1;
+                opacity: 1;
+                visibility: visible;
+                transition: .2s;
+                transition-delay: .2s;
             }
 
             &::after {
@@ -155,6 +168,45 @@ body {
                 border-top-right-radius: 1.4rem;
                 box-shadow: 1.4rem 0 0 $clr-light;
                 z-index: -1;
+                transition: .1s;
+                transition-delay: .1s;
+            }
+        }
+
+        &.fixed {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: $clr-light-transparent;;
+            z-index: 9999;
+            padding-right: 2rem;
+            backdrop-filter: blur(5px);
+
+
+            .hero-header-logo {
+                padding-block: 0;
+            }
+
+            .logo-img-light {
+                display: none;
+            }
+
+            .logo-img-dark {
+                display: block;
+            }
+
+            .hero-header-nav {
+                background-color: transparent;
+                
+                &::before,
+                &::after {
+                    box-shadow: 0 0 0 transparent;
+                    background-color: transparent;
+                    border: 0;
+                    transition: 0s;
+                    transition-delay: 0s;
+                    transform: translate(50px, -50px);
+                }
             }
         }
     }

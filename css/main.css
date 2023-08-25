@@ -46,7 +46,6 @@ body {
 .hero {
   min-height: calc(100svh - 1rem);
   background-color: #efefef;
-  isolation: isolate;
   margin: 0.5rem;
   position: relative;
   border-radius: 0.5rem;
@@ -54,6 +53,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #5865F2;
+  isolation: isolate;
 }
 .hero *::-moz-selection {
   background-color: #efefef;
@@ -62,6 +62,9 @@ body {
 .hero *::selection {
   background-color: #efefef;
   color: #1c1c1c;
+}
+.hero.header-fixed {
+  isolation: auto;
 }
 .hero-video {
   position: absolute;
@@ -95,6 +98,7 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  transition: 0.2s;
 }
 .hero-header-logo {
   padding: 2rem;
@@ -102,6 +106,9 @@ body {
 }
 .hero-header-logo img {
   max-width: 6rem;
+}
+.hero-header .logo-img-dark {
+  display: none;
 }
 .hero-header-nav {
   padding: 1.25rem 1rem 1.5rem 1.5rem;
@@ -174,6 +181,10 @@ body {
   border-top-right-radius: 1.4rem;
   box-shadow: 1.4rem 0 0 #efefef;
   z-index: -1;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.2s;
+  transition-delay: 0.2s;
 }
 .hero-header-nav::after {
   content: "";
@@ -186,6 +197,38 @@ body {
   border-top-right-radius: 1.4rem;
   box-shadow: 1.4rem 0 0 #efefef;
   z-index: -1;
+  transition: 0.1s;
+  transition-delay: 0.1s;
+}
+.hero-header.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: rgba(239, 239, 239, 0.7529411765);
+  z-index: 9999;
+  padding-right: 2rem;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.hero-header.fixed .hero-header-logo {
+  padding-block: 0;
+}
+.hero-header.fixed .logo-img-light {
+  display: none;
+}
+.hero-header.fixed .logo-img-dark {
+  display: block;
+}
+.hero-header.fixed .hero-header-nav {
+  background-color: transparent;
+}
+.hero-header.fixed .hero-header-nav::before, .hero-header.fixed .hero-header-nav::after {
+  box-shadow: 0 0 0 transparent;
+  background-color: transparent;
+  border: 0;
+  transition: 0s;
+  transition-delay: 0s;
+  transform: translate(50px, -50px);
 }
 .hero-footer {
   display: flex;
@@ -402,6 +445,14 @@ body {
     padding-block: 1.5rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
 .section-title, .section-title .title-letter {
   font-size: 6rem;
   font-family: "Bricolage Grotesque", sans-serif;
@@ -439,32 +490,62 @@ body {
   margin-bottom: 0;
 }
 
-.about-me {
+.about-me-info {
   display: grid;
   grid-template-columns: 1fr 4fr;
   align-items: start;
-  gap: 3rem;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
 }
 @media screen and (max-width: 700px) {
-  .about-me {
-    display: flex;
-    flex-direction: column;
+  .about-me-info {
+    row-gap: 1rem;
   }
 }
-.about-me-picture {
+@media screen and (max-width: 600px) {
+  .about-me-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+.about-me-info .about-me-picture {
   background-color: #5865F2;
   border-radius: 1rem;
   transition: 0.2s;
+  grid-row: span 2;
 }
 @media screen and (max-width: 700px) {
-  .about-me-picture {
-    display: none;
+  .about-me-info .about-me-picture {
+    grid-row: span 1;
   }
 }
-.about-me-picture img {
+@media screen and (max-width: 600px) {
+  .about-me-info .about-me-picture {
+    margin-top: 2rem;
+  }
+}
+.about-me-info .about-me-picture img {
   border-radius: 1rem;
   transform: scale(1.2);
   transition: 0.2s;
+}
+@media screen and (max-width: 600px) {
+  .about-me-info .about-me-picture img {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .about-me-info .about-me-title {
+    grid-column: span 2;
+    grid-row: 1/2;
+  }
+}
+@media screen and (max-width: 600px) {
+  .about-me-info .about-me-title {
+    margin-top: 1rem;
+  }
 }
 
 #youtube {
@@ -510,6 +591,14 @@ body {
     padding-block: 2.5rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
 .footer h2,
 .footer p,
 .footer p *,
@@ -529,6 +618,16 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+@media screen and (max-width: 600px) {
+  .footer-redes {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 400px) {
+  .footer-redes {
+    font-size: 2rem;
+  }
 }
 .footer-redes a i {
   transition: 0.3s;

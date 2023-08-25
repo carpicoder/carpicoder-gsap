@@ -1,27 +1,53 @@
-.about-me {
+.about-me-info {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: start;
-    gap: 3rem;
+    column-gap: 3rem;
 
     @include query(700) {
-        display: flex;
-        flex-direction: column;
+        row-gap: 1rem;
     }
 
-    &-picture {
+    @include query(600) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-me-picture {
         background-color: $clr-primary;
         border-radius: 1rem;
         transition: .2s;
+        grid-row: span 2;
 
         @include query(700) {
-            display: none;
+            grid-row: span 1;
+        }
+
+        @include query(600) {
+            margin-top: 2rem;
         }
 
         img {
             border-radius: 1rem;
             transform: scale(1.2);
             transition: .2s;
+
+            @include query(600) {
+                width: 200px;
+            }
+        }
+    }
+
+    .about-me-title {
+        @include query(700) {
+            grid-column: span 2;
+            grid-row: 1 / 2;
+        }
+
+        @include query(600) {
+            margin-top: 1rem;
         }
     }
 }

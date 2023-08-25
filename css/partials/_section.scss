@@ -15,6 +15,13 @@
         padding-block: 1.5rem;
     }
 
+    @include query(600) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     &-title {
         font-size: 6rem;
         font-family: $ff-titles;

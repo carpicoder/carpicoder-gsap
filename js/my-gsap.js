@@ -1,4 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
+const isMobile = window.innerWidth <= 768; 
 
 gsap.from(".hero-header-nav", .5, {
     delay: .75,
@@ -112,14 +113,12 @@ sectionTitles.forEach((char, i) => {
         translateX: 0,
         duration: 0.5,
         fontWeight: 900,
-        stagger: {
-            amount: 1,
-        },
+        stagger: .05,
         scrollTrigger: {
           trigger: char.parentNode.parentNode.parentNode,
           start: 'top bottom',
           end: 'bottom bottom',
-          scrub: true,
+          scrub: isMobile ? false : true,
         }
       });
 
@@ -146,15 +145,19 @@ sectionTitles.forEach((char, i) => {
 
 
 //// FOTO DE ABOUT ME
-gsap.from(".about-me-picture", {
+gsap.set(".about-me-picture", {
     opacity: 0,
     translateY: -200,
-    duration: 0.5,
+}); // Establecer valores iniciales
+
+gsap.to(".about-me-picture", {
+    opacity: 1,
+    translateY: 0,
     scrollTrigger: {
       trigger: ".about-me-picture",
       start: 'top bottom',
       end: 'bottom bottom',
-      scrub: true,
+      scrub: isMobile ? false : true,
     }
 });
 
@@ -172,7 +175,7 @@ sectionTexts.forEach((sectionText) => {
           trigger: sectionText.parentNode.parentNode.parentNode,
           start: 'top bottom',
           end: 'bottom 60%',
-          scrub: true
+          scrub: isMobile ? false : true,
         }
     });
     
@@ -329,3 +332,21 @@ allSections.forEach((section) => {
 
 
 
+
+
+
+gsap.to(".hero-header", {
+    scrollTrigger: {
+      trigger: ".hero",
+      start: 'bottom top',
+      end: "bottom top",
+      onEnter: () => {
+        document.querySelector(".hero-header").classList.add("fixed");
+        document.querySelector(".hero").classList.add("header-fixed");
+      },
+      onEnterBack: () => {
+        document.querySelector(".hero-header").classList.remove("fixed");
+        document.querySelector(".hero").classList.remove("header-fixed");
+      },
+    }
+  });
